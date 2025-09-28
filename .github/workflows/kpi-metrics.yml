@@ -1,0 +1,68 @@
+name: KPI Metrics
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1" # Mo 06:00 UTC: Weekly aggregate
+
+permissions:
+  contents: write
+
+jobs:
+  collect-ci:
+    if: ${{ github.event_name == 'workflow_run' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Write CI row
+        run: |
+          echo "CI_JOB_STATUS=${{ github.event.workflow_run.conclusion }}" >> $GITHUB_ENV
+          node scripts/kpi/collect_ci_run.js
+      - name: Commit metrics
+        run: |
+          git config user.name "kpi-bot"
+          git config user.email "kpi-bot@users.noreply.github.com"
+          git add .metrics/ci_runs.csv
+          git commit -m "kpi: append ci run (#${{ github.event.workflow_run.run_number }})" || echo "no changes"
+          git push
+
+  detect-auto-fix:
+    if: ${{ github.event_name == 'workflow_run' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Detect auto-fix
+        run: node scripts/kpi/detect_auto_fix.js
+      - name: Commit metrics
+        run: |
+          git config user.name "kpi-bot"
+          git config user.email "kpi-bot@users.noreply.github.com"
+          git add .metrics/auto_fixes.csv
+          git commit -m "kpi: update auto-fix metrics" || echo "no changes"
+          git push
+
+  aggregate-week:
+    if: ${{ github.event_name != 'workflow_run' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Aggregate weekly metrics
+        run: node scripts/kpi/aggregate_week.js
+      - name: Commit report
+        run: |
+          git config user.name "kpi-bot"
+          git config user.email "kpi-bot@users.noreply.github.com"
+          git add .metrics/weekly_report.md
+          git commit -m "kpi: weekly report"
+          git push
