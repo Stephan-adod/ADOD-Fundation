@@ -1,4 +1,4 @@
-# 🗺️ Systemkarte Phase 1 (v0.2)
+# 🗺️ Systemkarte Phase 1 (v0.3)
 
 ## Ziele
 - Klare Architektur für Micro-SaaS schaffen
@@ -8,44 +8,44 @@
 
 ---
 
-## Loops (mit KPIs)
+## Loops (mit KPIs + Links)
 
-### Strategy Loop → Vision, Ziele, Priorisierung
+### [Strategy Loop](Strategy_Loop.md) → Vision, Ziele, Priorisierung
 - **KPI 1:** Anzahl klar dokumentierter Ziele pro Quartal  
 - **KPI 2:** % Tickets, die auf ein Ziel gemappt sind  
 
-### Execution Loop → Ticket → Code → PR
+### [Execution Loop](Execution_Loop.md) → Ticket → Code → PR
 - **KPI 1:** Green-Rate (% PRs grün beim ersten Durchlauf)  
 - **KPI 2:** Median PR-Zykluszeit (Ticket bis Merge)  
 
-### Feedback Loop → Tests, Reviews, Auto-Fix
+### [Feedback Loop](Feedback_Loop.md) → Tests, Reviews, Auto-Fix
 - **KPI 1:** Auto-Fix-Quote (% Fehler automatisch behoben)  
 - **KPI 2:** Review-Latenz (Ø Zeit bis erstes Review)  
 
-### Growth Loop → Lernen, Metriken, Verbesserung
+### [Growth Loop](Growth_Loop.md) → Lernen, Metriken, Verbesserung
 - **KPI 1:** Anzahl Lessons Learned pro Monat  
 - **KPI 2:** % Loops, die nach Refinement verbessert wurden  
 
-### Governance Loop → DoR/DoD, Runbooks, Regeln
+### [Governance Loop](Governance_Loop.md) → DoR/DoD, Runbooks, Regeln
 - **KPI 1:** % PRs mit vollständigen DoR/DoD-Checklisten  
 - **KPI 2:** Abweichungsrate (PRs ohne erfüllte Governance-Kriterien)  
 
-### Documentation Loop → Auto/Manuell, Wissensbasis
+### [Documentation Loop](Documentation_Loop.md) → Auto/Manuell, Wissensbasis
 - **KPI 1:** Dokumentationsgrad (% Artefakte aktuell)  
 - **KPI 2:** Ø Aktualisierungszeit pro Artefakt  
 
-### Safety Net Loop → Security, Dependencies, Compliance
+### [Safety Net Loop](SafetyNet_Loop.md) → Security, Dependencies, Compliance
 - **KPI 1:** % Security-PRs merged ohne Delay  
 - **KPI 2:** Ø Zeit bis Dependency-Update gemerged  
 
-### Operator Loop → Daily/Weekly/Monthly Routinen
+### [Operator Loop](Operator_Loop.md) → Daily/Weekly/Monthly Routinen
 - **KPI 1:** Operator-Zeitaufwand (Std/Woche für Meta)  
 - **KPI 2:** Erfüllungsquote der geplanten Routinen (%)  
 
 ---
 
 ## Artefakte
-- `artefacts/loops/*_Loop.md` (8 Dateien, je Loop eine Charta)
+- `artefacts/loops/*_Loop.md` (8 Dateien, je Loop eine Charta, siehe Links oben)
 - `artefacts/kpi/Operator_KPIs.md`
 - `artefacts/runbooks/Documentation_Layer.md`
 - `docs/OPERATOR_RUNBOOK.md`
