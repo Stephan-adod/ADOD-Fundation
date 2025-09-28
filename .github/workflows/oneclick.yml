@@ -174,8 +174,8 @@ jobs:
 
             const timestamp = new Date().toISOString();
             const status = 'merged';
-            const logLine = `${timestamp},${pull_number},${commenter},${status}`;
-            const logPath = '.metrics/oneclick_log.csv';
+            const logLine = `| ${timestamp} | ${pull_number} | ${commenter} | ${status} |`;
+            const logPath = '.metrics/oneclick_log.md';
 
             let existingContent = '';
             let currentSha;
@@ -196,7 +196,7 @@ jobs:
               currentSha = contentData.sha;
             } catch (error) {
               if (error.status === 404) {
-                existingContent = 'timestamp,pr_number,user,status\n';
+                existingContent = '| timestamp | pr_number | user | status |\n| --- | --- | --- | --- |\n';
               } else {
                 throw error;
               }
