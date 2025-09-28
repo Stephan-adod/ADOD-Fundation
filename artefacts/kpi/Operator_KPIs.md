@@ -1,16 +1,13 @@
 # 📊 Operator KPIs
 
-Ziel: Klare Messpunkte, ob das Arbeiten im System funktioniert und für den Operator einfach bleibt.  
-Die KPIs sind so formuliert, dass sie ohne technisches Fachwissen überprüfbar sind.
+Ziel: Messen, ob Arbeit im System leicht, schnell und stabil ist.
 
----
+| KPI | Definition | Messmethode | Zielwert |
+|---|---|---|---|
+| Green-Rate (First Pass) | Anteil PRs, die beim ersten Lauf grün sind | `.metrics/ci_runs.csv` → status==success & first_attempt==1 | ≥ 95 % |
+| PR-Zykluszeit (Median) | Zeit von Ticket-Erstellung bis Merge | manuell in `Operator_KPI_Checklist.md` (vorerst) | ≤ 24 h |
+| Auto-Fix-Quote | Anteil PRs mit erkanntem Auto-Fix (`[auto-fix]`) | `.metrics/auto_fixes.csv` | ≥ 60 % |
+| Dokumentationsgrad | Anteil Kern-Artefakte mit aktueller Version | File-Existenz + Änderungsdatum | ≥ 90 % |
+| Operator-Aufwand | Manuelle Schritte pro Ticket | `Operator_KPI_Checklist.md` | ≤ 3 |
 
-| KPI                | Definition                                                | Messmethode                                    | Zielwert |
-|---------------------|-----------------------------------------------------------|------------------------------------------------|----------|
-| **Green-Rate**      | Anteil der Pull Requests, die beim ersten Durchlauf ohne Fehler durchlaufen | CI-Status prüfen (grün beim ersten Lauf)       | ≥ 95 %   |
-| **PR-Zykluszeit**   | Zeit vom Erstellen eines Tickets bis zum Merge in den Hauptzweig | Zeitstempel „Ticket erstellt“ → „Merge erfolgt“ | ≤ 24 h   |
-| **Auto-Fix-Quote**  | Anteil der Fehler, die automatisch behoben werden (Lint, Format, Security) | Zählen von Auto-Fix-Commits im PR              | ≥ 60 %   |
-| **Dokumentationsgrad** | Anteil der Artefakte (Loops, KPIs, Runbooks), die aktuell gepflegt sind | Checklisten-Review einmal pro Woche            | ≥ 90 %   |
-| **Operator-Aufwand** | Anzahl der manuellen Schritte, die ein Operator pro Ticket erledigen muss | Zählen der Operator-Aktionen (DoR, DoD, Merge) | ≤ 3      |
-
----
+Weitere Automatisierung: Siehe `.github/workflows/kpi-metrics.yml`.
