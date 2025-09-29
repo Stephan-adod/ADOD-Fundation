@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "lint:md": "markdownlint **/*.md -c .markdownlint.yml -d",
+    "lint:format": "prettier --check .",
+    "format": "prettier --write .",
+    "phase0:check": "node scripts/phase0-check.mjs"
+  }
+}
