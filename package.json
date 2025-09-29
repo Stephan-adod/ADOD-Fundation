@@ -3,6 +3,7 @@
     "lint:md": "markdownlint **/*.md -c .markdownlint.yml -d",
     "lint:format": "prettier --check .",
     "format": "prettier --write .",
-    "phase0:check": "node scripts/phase0-check.mjs"
+    "phase0:check": "node scripts/phase0-check.mjs",
+    "audit:phase0": "node scripts/audit-phase0.mjs"
   }
 }
