@@ -1,61 +1,58 @@
-# 🗺️ Systemkarte Phase 1 (v0.3)
+# 🗺️ Systemkarte Phase 1 (v0.4)
 
 ## Ziele
 - Klare Architektur für Micro-SaaS schaffen
 - Operator-UX einfach und verlässlich gestalten
 - Fehler reduzieren durch Self-Healing & Governance
 - Geschwindigkeit in Ticket → Code → Merge erhöhen
+- Kontinuierliche kleine Verbesserungen sichern (Iteration Loop)
 
 ---
 
-## Loops (mit KPIs + Links)
+## Loops (mit Foundation-KPIs)
 
 ### [Strategy Loop](Strategy_Loop.md) → Vision, Ziele, Priorisierung
-- **KPI 1:** Anzahl klar dokumentierter Ziele pro Quartal  
-- **KPI 2:** % Tickets, die auf ein Ziel gemappt sind  
+- **KPI:** Anzahl klar dokumentierter Ziele pro Quartal  
 
 ### [Execution Loop](Execution_Loop.md) → Ticket → Code → PR
-- **KPI 1:** Green-Rate (% PRs grün beim ersten Durchlauf)  
-- **KPI 2:** Median PR-Zykluszeit (Ticket bis Merge)  
+- **KPI:** % PRs grün beim ersten Durchlauf  
 
 ### [Feedback Loop](Feedback_Loop.md) → Tests, Reviews, Auto-Fix
-- **KPI 1:** Auto-Fix-Quote (% Fehler automatisch behoben)  
-- **KPI 2:** Review-Latenz (Ø Zeit bis erstes Review)  
+- **KPI:** Anzahl dokumentierter Lessons Learned  
 
 ### [Growth Loop](Growth_Loop.md) → Lernen, Metriken, Verbesserung
-- **KPI 1:** Anzahl Lessons Learned pro Monat  
-- **KPI 2:** % Loops, die nach Refinement verbessert wurden  
+- **KPI:** % Loops mit dokumentierten Verbesserungen  
 
 ### [Governance Loop](Governance_Loop.md) → DoR/DoD, Runbooks, Regeln
-- **KPI 1:** % PRs mit vollständigen DoR/DoD-Checklisten  
-- **KPI 2:** Abweichungsrate (PRs ohne erfüllte Governance-Kriterien)  
+- **KPI:** % PRs mit erfüllter DoR/DoD-Checkliste  
 
 ### [Documentation Loop](Documentation_Loop.md) → Auto/Manuell, Wissensbasis
-- **KPI 1:** Dokumentationsgrad (% Artefakte aktuell)  
-- **KPI 2:** Ø Aktualisierungszeit pro Artefakt  
+- **KPI:** Dokumentationsgrad (Aktualität Artefakte)  
 
 ### [Safety Net Loop](SafetyNet_Loop.md) → Security, Dependencies, Compliance
-- **KPI 1:** % Security-PRs merged ohne Delay  
-- **KPI 2:** Ø Zeit bis Dependency-Update gemerged  
+- **KPI:** % Dependency-Updates gemerged  
 
-### [Operator Loop](Operator_Loop.md) → Daily/Weekly/Monthly Routinen
-- **KPI 1:** Operator-Zeitaufwand (Std/Woche für Meta)  
-- **KPI 2:** Erfüllungsquote der geplanten Routinen (%)  
+### [Operator Loop](Operator_Loop.md) → Daily/Weekly Routinen
+- **KPI:** Erfüllungsquote Weekly-Review  
+
+### [Iteration Loop](Iteration_Loop.md) → Kleine Verbesserungen dokumentieren & umsetzen
+- **KPI:** ≥ 1 Iteration pro Woche im `Iteration_Log.md`  
 
 ---
 
 ## Artefakte
-- `artefacts/loops/*_Loop.md` (8 Dateien, je Loop eine Charta, siehe Links oben)
+- `artefacts/loops/*_Loop.md` (9 Dateien inkl. Iteration Loop)
 - `artefacts/kpi/Operator_KPIs.md`
 - `artefacts/runbooks/Documentation_Layer.md`
 - `docs/OPERATOR_RUNBOOK.md`
 - `artefacts/Operator_Proof.md`
+- `artefacts/logs/Iteration_Log.md` (neu)
 
 ---
 
 ## Globale KPIs (aus allen Loops)
 - **Green-Rate**: % PRs, die beim ersten Durchlauf grün sind  
 - **PR-Zykluszeit**: Zeit von Ticket bis Merge  
-- **Auto-Fix-Quote**: % Fehler, die automatisch behoben werden  
 - **Dokumentationsgrad**: Anteil Artefakte mit aktuellem Inhalt  
-- **Operator-Zeitaufwand**: Stunden pro Woche für Meta-Aufgaben
+- **Operator-Zeitaufwand**: Stunden pro Woche für Meta-Aufgaben  
+- **Iteration-Frequenz**: ≥ 1 Iteration pro Woche im Log
