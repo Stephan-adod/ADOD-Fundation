@@ -1,0 +1,21 @@
+name: docs-lite
+on:
+  pull_request:
+    paths:
+      - "artefacts/**.md"
+      - ".markdownlint.yml"
+      - ".prettierrc"
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run lint:format
+        continue-on-error: true   # WARN in Phase 0
+      - run: npm run lint:md
+        continue-on-error: true   # WARN in Phase 0
+      - run: npm run phase0:check
+        continue-on-error: true   # WARN in Phase 0
